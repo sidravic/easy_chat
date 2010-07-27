@@ -1,0 +1,60 @@
+<script>document.domain = document.domain </script>
+<script> 
+	user = 'sid';
+	password = 'abcabcabc';
+	domain = 'siddharth-ravichandrans-macbook-pro.local';
+</script>
+
+ <script>
+    function onLoginSuccess(){
+		alert('User logged in');
+}
+    function onLoginFailure(){
+		alert('User could not be logged in');
+	}
+    function connectSuccess(){
+		document.domain = 'www.hellomentor.com';
+	}
+	
+	function connectFailure(){
+	
+	}
+
+	xmpp_client = new XMPPClient();
+	xmpp_client.connect('localhost',5222);
+	
+	xmpp_client.onSocketConnect = function(domain, connectSuccess, connectFailure){
+		domain  = 'siddharth-ravichandrans-macbook-pro.local';
+		if('siddharth-ravichandrans-macbook-pro.local')
+		{
+			xmpp_client.connectServer(domain, connectSuccess, connectFailure);
+			xmpp_client.login(user, password, onLoginSuccess, onLoginFailure);
+			xmpp_client.set_presence('available');
+		}
+	}
+	
+	
+	function send_message(jid, msg, domain){
+		alert('send message called');
+		var status = xmpp_client.msg(jid, msg);
+		alert(status);
+	}
+	
+	
+	
+	
+/*	self.login = function(nick, pass, s, f) {
+        conn.onread = setUser;
+        success = s;
+        failure = f;
+        user = nick;
+        bare_jid = nick + "@" + domain;
+        full_jid = bare_jid + "/Orbited";
+        self.send(construct(LOGIN, [user, pass]));
+    }
+
+ self.set_presence = function(status, status_msg) {
+        self.send(EXT_PRESENCE[0] + full_jid + EXT_PRESENCE[1] + room_jid + EXT_PRESENCE[3] + status + EXT_PRESENCE[4] + status_msg + EXT_PRESENCE[5]);
+    }
+*/
+ </script>

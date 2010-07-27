@@ -9,15 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100719153713) do
+ActiveRecord::Schema.define(:version => 20100724104426) do
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "jabber_id"
     t.string   "email_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "jabber_id"
   end
 
 end

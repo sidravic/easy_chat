@@ -5,12 +5,13 @@
   Orbited.settings.hostname = 'localhost'
 </script>
 <script> document.domain = document.domain </script>
+<script src='http://localhost:8000/static/protocols/xmpp/xmpp.js'></script>
 <script>
-//  $(document).ready(function(){
-//    tcp = new Orbited.TCPSocket();
-//    tcp.open('localhost',5222,false);
-//    tcp.onopen =function(){  tcp.send("Mary had a little lamb"); }
-//    tcp.onread = function(data){
-//      alert("RECV" +  data);}
-//  });
+/* $(document).ready(function(){
+   tcp = new Orbited.TCPSocket();
+    tcp.open('localhost',5222);
+    tcp.onopen =function(){   tcp.send("Mary had a little lamb"); }
+    tcp.onread = function(data){
+      alert("RECV" +  data);}
+  }); */
 </script>

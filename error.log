@@ -12716,3 +12716,7 @@
 07/20/10 09:53:28:864 WARN   orbited.proxy.ProxyIncomingProtocol	Unauthorized connect from '127.0.0.1':58683 to 'localhost':3000
 07/20/10 09:55:31:544 WARN   orbited.proxy.ProxyIncomingProtocol	Unauthorized connect from '127.0.0.1':58682 to 'localhost':8000
 07/20/10 09:55:43:460 WARN   orbited.proxy.ProxyIncomingProtocol	Unauthorized connect from '127.0.0.1':58682 to 'localhost':5222
+07/26/10 21:36:03:611 WARN   orbited.proxy.ProxyIncomingProtocol	Unauthorized connect from '127.0.0.1':59207 to 'localhost':5222
+07/26/10 21:36:54:237 WARN   orbited.proxy.ProxyIncomingProtocol	Unauthorized connect from '127.0.0.1':59207 to 'localhost':5222
+07/26/10 21:37:49:265 WARN   orbited.proxy.ProxyIncomingProtocol	Unauthorized connect from '127.0.0.1':59210 to 'localhost':5222
+07/26/10 21:40:12:915 WARN   orbited.proxy.ProxyIncomingProtocol	Unauthorized connect from '127.0.0.1':59299 to 'localhost':5222

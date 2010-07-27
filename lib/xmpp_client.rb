@@ -4,7 +4,7 @@ include Jabber
 
 class XmppClient
 
-  def client(bare_jid, domain='ubuntu.ubuntu-domain')
+  def client(bare_jid, domain='sid-laptop')
    jabber_id = bare_jid + "@" + domain 
    @client = Jabber::Client.new(JID.new(jabber_id))
    @client.connect
@@ -22,14 +22,14 @@ class XmppClient
     @client.close
   end
 
-  def self.register(bare_jid, password, domain='ubuntu.ubuntu-domain')
+  def self.register(bare_jid, password, domain='sid-laptop')
    xmpp_client =  XmppClient.new
    xmpp_client.client(bare_jid)
    xmpp_client.register(password)
    xmpp_client.close
   end
 
-  def self.login(bare_jid, password, domain='ubuntu.ubuntu-domain')
+  def self.login(bare_jid, password, domain='sid-laptop')
     xmpp_client = XmppClient.new
     xmpp_client.client(bare_jid)
     xmpp_client.login(password)
@@ -68,7 +68,7 @@ class XmppClient
     end
   end
 
-  def send_message(to_jid, message, domain='ubuntu.ubuntu-domain')
+  def send_message(to_jid, message, domain='sid-laptop')
     to_jabber_id = to_jid + "@" + domain
     msg = Message::new(to_jid, message)
     msg.type = :chat

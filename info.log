@@ -12747,3 +12747,18 @@
 07/20/10 09:53:28:865 ACCESS connection closed from 127.0.0.1:58683 to localhost:3000	
 07/20/10 09:55:31:544 ACCESS connection closed from 127.0.0.1:58682 to localhost:8000	
 07/20/10 09:55:43:460 ACCESS connection closed from 127.0.0.1:58682 to localhost:5222	
+07/26/10 21:36:03:612 ACCESS connection closed from 127.0.0.1:59207 to localhost:5222	
+07/26/10 21:36:54:237 ACCESS connection closed from 127.0.0.1:59207 to localhost:5222	
+07/26/10 21:37:49:266 ACCESS connection closed from 127.0.0.1:59210 to localhost:5222	
+07/26/10 21:40:12:915 ACCESS connection closed from 127.0.0.1:59299 to localhost:5222	
+07/26/10 21:13:28:411 INFO   orbited.start	using select reactor
+07/26/10 21:13:29:833 INFO   orbited.start	proxy protocol active
+07/26/10 21:13:29:839 INFO   orbited.start	Listening http@8000
+07/26/10 21:13:29:841 INFO   orbited.start	switching to user root (uid=0) and group wheel (gid=0)
+07/26/10 21:41:20:476 ACCESS new connection from 127.0.0.1:59323 to localhost:5222	
+07/26/10 21:42:09:996 ACCESS new connection from 127.0.0.1:59326 to localhost:5222	
+07/26/10 21:42:10:317 ACCESS connection closed from 127.0.0.1:59326 to localhost:5222	
+07/26/10 21:41:14:330 INFO   orbited.start	using select reactor
+07/26/10 21:41:15:932 INFO   orbited.start	proxy protocol active
+07/26/10 21:41:15:979 INFO   orbited.start	Listening http@8000
+07/26/10 21:41:15:989 INFO   orbited.start	switching to user root (uid=0) and group wheel (gid=0)
