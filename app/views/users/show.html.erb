@@ -1,2 +1,26 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class='discussion-area'>
+	
+</div>
+
+<% form_for "" do |f| %>
+ 
+		
+	<p> Message : <%= f.text_field :message, :class=>'message-field' %>  &nbsp; <%= submit_tag 'send', :class=>'send-message' %></p>
+	
+<% end %>
+
+<% content_for :js do %>
+	<script>
+		$('.send-message').click(function(){
+			var msg = $('.message-field').val();
+			send_message('sid', msg);
+			$('.discussion-area').append('<div class=\'new-message\'>' + msg + '</div>');
+			return false;
+
+		})
+	</script>
+	
+	
+<% end %>

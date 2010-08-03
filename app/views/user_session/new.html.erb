@@ -1,0 +1,17 @@
+<% content_for :title do %>
+	Login
+<% end %>
+
+<% form_for :user_session, :url => login_attempt_url do |f| %>
+	<div class  = 'element-group'>
+		<div class = 'element-label'> Email </div> : 
+		<div class = 'element-field'> <%= f.text_field :email%> </div>
+		<div class = 'error-messages'><%= error_message_on :user, :email %></div>
+	
+		<div class = 'element-label'> Password </div>
+		<div class = 'element-field'> <%= f.password_field :password%> </div>
+		<div class = 'error-message'> <%= error_message_on :user, :password %> </div>
+	
+	    <div class = 'element-field'> <%= f.submit 'Sign In', :class=>'register-button'%> </div>
+	</div>
+<% end %>

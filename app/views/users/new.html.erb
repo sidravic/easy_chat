@@ -1,2 +1,50 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% content_for :css do %>
+	<style>
+		.element-field{
+			padding:5px;
+			
+		}
+		.element-group {
+			margin-top:1em;
+		}
+		
+		.fieldWithErrors{
+			color:red;
+		}
+		
+		.formError {
+			color:red;
+		}
+		
+		.error_field{
+			color:red;
+		}
+		
+		.error-highlight{
+			border:1px solid red;
+		}
+	</style>
+<% end %>
+
+<% form_for :user, :url=>users_url do |f| %>
+	<div class  = 'element-group'>
+		<div class = 'element-label'> Email </div> : 
+		<div class = 'element-field'> <%= f.text_field :email%> </div>
+		<div class = 'error-messages'><%= error_message_on :user, :email %></div>
+	
+		<div class = 'element-label'> Password </div>
+		<div class = 'element-field'> <%= f.password_field :password%> </div>
+		<div class = 'error-message'> <%= error_message_on :user, :password %> </div>
+	
+		<div class = 'element-label'> Password Confirmation </div>
+		<div class = 'element-field'> <%= f.password_field :password_confirmation %> </div>
+	
+		<div class = 'element-field'> <%= f.submit 'Register', :class=>'register-button'%> </div>
+	</div>
+<% end%>
+
+<% content_for :js do %>
+	<script>
+		$('.fieldWithErrors > input').addClass('error-highlight');
+	</script>
+<% end %>

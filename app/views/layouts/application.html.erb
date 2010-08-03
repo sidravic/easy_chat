@@ -7,8 +7,12 @@
   </head>
 
   <body>
-    <%= yield :css %>
-    
+
+       
+    <div class='navigation'>
+		<%= render :partial => 'shared/navigation_bar'%>
+    </div>
+
     <div class='content'>
        <%= yield %>
     </div>

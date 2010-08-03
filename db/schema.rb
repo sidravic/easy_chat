@@ -9,15 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100724104426) do
+ActiveRecord::Schema.define(:version => 20100729104612) do
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email_id"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "jabber_id"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "perishable_token"
+    t.integer  "login_count"
+    t.string   "current_login_ip"
   end
 
 end

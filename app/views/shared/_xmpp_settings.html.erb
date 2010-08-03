@@ -1,60 +1,86 @@
 <script>document.domain = document.domain </script>
 <script> 
-	user = 'sid';
-	password = 'abcabcabc';
-	domain = 'siddharth-ravichandrans-macbook-pro.local';
+
 </script>
 
- <script>
-    function onLoginSuccess(){
+<% if current_user %>
+<script>
+    notifier = '4_abcabc_879';
+	user = "<%= current_user.jabber_id %>";
+	alert(user);
+	password = '123456';
+	domain = "<%= XMPPDOMAIN %>";
+
+	function onLoginSuccess(){
 		alert('User logged in');
-}
-    function onLoginFailure(){
+	}
+	function onLoginFailure(){
 		alert('User could not be logged in');
 	}
-    function connectSuccess(){
-		document.domain = 'www.hellomentor.com';
+	function connectSuccess(){
+
 	}
-	
+
 	function connectFailure(){
-	
+
 	}
+
+    function onSetupNotification(){}
 
 	xmpp_client = new XMPPClient();
 	xmpp_client.connect('localhost',5222);
+
+	xmpp_client.onPresence = function(ntype, from) {
+		alert('Presence message' + ntype + ' From :' + from)
 	
+	}
+
 	xmpp_client.onSocketConnect = function(domain, connectSuccess, connectFailure){
-		domain  = 'siddharth-ravichandrans-macbook-pro.local';
-		if('siddharth-ravichandrans-macbook-pro.local')
+
+		var domain = "<%=XMPPDOMAIN %>";
+	
+		alert(domain + " Socket Connected");
+		if(domain)
 		{
 			xmpp_client.connectServer(domain, connectSuccess, connectFailure);
 			xmpp_client.login(user, password, onLoginSuccess, onLoginFailure);
 			xmpp_client.set_presence('available');
 		}
 	}
-	
-	
-	function send_message(jid, msg, domain){
-		alert('send message called');
-		var status = xmpp_client.msg(jid, msg);
+
+
+	function send_message(id, msg){
+		var j_id =  id + '@' + 'siddharth-ravichandrans-macbook-pro.local';
+		alert('jid_id' + j_id);
+		var status = xmpp_client.msg(j_id, msg);
 		alert(status);
 	}
-	
-	
-	
-	
-/*	self.login = function(nick, pass, s, f) {
-        conn.onread = setUser;
-        success = s;
-        failure = f;
-        user = nick;
-        bare_jid = nick + "@" + domain;
-        full_jid = bare_jid + "/Orbited";
-        self.send(construct(LOGIN, [user, pass]));
-    }
 
- self.set_presence = function(status, status_msg) {
-        self.send(EXT_PRESENCE[0] + full_jid + EXT_PRESENCE[1] + room_jid + EXT_PRESENCE[3] + status + EXT_PRESENCE[4] + status_msg + EXT_PRESENCE[5]);
-    }
+	xmpp_client.onMessage = function(jid, username, text) {
+		alert('message-recieved');
+		if ( $('.discussion-area').length > 0 ){
+			$('.discussion-area').append('<div class=\'new-message\'>' + text + '</div>');
+			return false;
+		}
+	}
+
+
+
+
+
+/*		self.login = function(nick, pass, s, f) {
+	conn.onread = setUser;
+	success = s;
+	failure = f;
+	user = nick;
+	bare_jid = nick + "@" + domain;
+	full_jid = bare_jid + "/Orbited";
+	self.send(construct(LOGIN, [user, pass]));
+	}
+
+	self.set_presence = function(status, status_msg) {
+	self.send(EXT_PRESENCE[0] + full_jid + EXT_PRESENCE[1] + room_jid + EXT_PRESENCE[3] + status + EXT_PRESENCE[4] + status_msg + EXT_PRESENCE[5]);
+	}
 */
  </script>
+<% end %>
