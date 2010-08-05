@@ -1,3 +1,13 @@
 .nav-position { 
 	float:right;
 	}
+	
+.discussion-area{
+	width:400px;
+	float:left;
+}
+
+.all-users{
+	width:250px;
+	float:left;
+}

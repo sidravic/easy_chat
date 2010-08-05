@@ -1,28 +1,34 @@
-<script>document.domain = document.domain </script>
+
 <script> 
 
 </script>
 
 <% if current_user %>
 <script>
-    notifier = '4_abcabc_879';
+    notifier = '	';
 	user = "<%= current_user.jabber_id %>";
 	alert(user);
 	password = '123456';
 	domain = "<%= XMPPDOMAIN %>";
 
-	function onLoginSuccess(){
-		alert('User logged in');
+/*	function onLoginSuccess(){
+		$('.status').html("Connected and Logged In");
+		xmpp_client.set_presence('available');
+	} */
+	
+	var onLoginSuccess = function(){
+		$('.status').html("Connected and Logged In");
+	
 	}
 	function onLoginFailure(){
 		alert('User could not be logged in');
 	}
 	function connectSuccess(){
-
+		alert("Socket Connected");
 	}
 
 	function connectFailure(){
-
+		$('.status').html("Connection Failed!");
 	}
 
     function onSetupNotification(){}
@@ -37,23 +43,24 @@
 
 	xmpp_client.onSocketConnect = function(domain, connectSuccess, connectFailure){
 
-		var domain = "<%=XMPPDOMAIN %>";
-	
-		alert(domain + " Socket Connected");
-		if(domain)
-		{
-			xmpp_client.connectServer(domain, connectSuccess, connectFailure);
+	    var d = "<%= XMPPDOMAIN %>";
+		$('.status').html('Connected');	
+		
+			xmpp_client.connectServer(d, connectSuccess, connectFailure);
 			xmpp_client.login(user, password, onLoginSuccess, onLoginFailure);
-			xmpp_client.set_presence('available');
-		}
+			//xmpp_client.set_presence('available');
+			
+		
+					
 	}
+	
+	
 
 
 	function send_message(id, msg){
 		var j_id =  id + '@' + 'siddharth-ravichandrans-macbook-pro.local';
 		alert('jid_id' + j_id);
-		var status = xmpp_client.msg(j_id, msg);
-		alert(status);
+		var status = xmpp_client.msg(j_id, msg);		
 	}
 
 	xmpp_client.onMessage = function(jid, username, text) {

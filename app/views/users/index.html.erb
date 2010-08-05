@@ -1,9 +1,17 @@
 <h1>Users#index</h1>
 
+<div class='status'>Not Connected.</div>
 <div class='discussion-area'>
 	
 </div>
 
+<div class='all-users'>
+	<ul>	
+	<% @users.each do |user| %>
+		<li><%= link_to "#{user.email}", "#", :class => "user-list #{user.jabber_id}"%> </li>
+	<% end %>
+    </ul>
+</div>
 <% form_for "" do |f| %>
  
 		
@@ -13,13 +21,31 @@
 
 <% content_for :js do %>
 	<script>
+	SELECTED_USER = null;
+	$(document).ready(function(){
 		$('.send-message').click(function(){
 			var msg = $('.message-field').val();
-			send_message("25_abcabc_349", msg);
+			if(SELECTED_USER){
+				send_message(SELECTED_USER, msg);
+			}
 			$('.discussion-area').append('<div class=\'new-message\'>' + msg + '</div>');
 			return false;
 
-		})
+		});
+		return false;
+	});
+	</script>
+	
+	<script>
+	$(document).ready(function(){
+		$('.user-list').click(function(){
+			var classes = $(this).attr('class').split(" ")[1];
+			SELECTED_USER = classes;
+			alert(SELECTED_USER);			
+			return false;
+		});
+		return false;
+	});
 	</script>
 	
 	

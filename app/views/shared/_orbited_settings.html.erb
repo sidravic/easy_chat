@@ -1,10 +1,12 @@
 <script src='http://localhost:8000/static/Orbited.js'></script>
 <script>
-  TCPSocket = Orbited.TCPSocket 
+  TCPSocket = Orbited.TCPSocket; 
   Orbited.settings.port = 8000;
-  Orbited.settings.hostname = 'localhost'
+  Orbited.settings.hostname = 'localhost';
 </script>
-<script> document.domain = document.domain </script>
+<script>
+	alert(document.domain);
+document.domain = document.domain; </script>
 <script src='http://localhost:8000/static/protocols/xmpp/xmpp.js'></script>
 <script>
 /* $(document).ready(function(){
